@@ -1,13 +1,8 @@
 <?php 
 
-// easy implementation example
-if( isset($_POST['subir']))
-    $res = subirArchivo( $_FILES['archivo'],['jpg','png'],'test');
-    echo $res;
-}
 
-
-// fuincion para subri archivos
+// This function uploads a file to the server, with the same extention given.
+//  and also check for an array of permited extentions and check file size limit.
 function subirArchivo( $archivo, $nombre , $destino, $extenciones , $limite )
 {
    // parseamo lso datos de los archivos
@@ -29,9 +24,9 @@ function subirArchivo( $archivo, $nombre , $destino, $extenciones , $limite )
               $fNombre  = $nombre . '.' . $acFileEx;  // name  + extention
               $fDestino = $destino . '/' . $fNombre;  // path + fnombre
                 $gate = move_uploaded_file( $tnFile ,  $fDestino ); // the move
-                if( $gate ) // etst
+                if( $gate ) // test
                 {
-                  return TRUE;  // devolvemos verdad si todo va bien
+                  return TRUE;  // all good
                } else {
                    return 'error subiendo archivo';
                 }
