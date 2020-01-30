@@ -14,12 +14,14 @@
 
 // post string of data to URL
 function postData(URL,buffer , callback ) {
-    var xhttp = new XMLHttpRequest();  // make
-    xhttp.onreadystatechange = function() { // check
-        if (this.readyState == 4 && this.status == 200) {
-            callback(this.response);  // return response
-        } 
+     let xhttp = new XMLHttpRequest(); // the thing
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        callback(this.responseText); // the cb 
+      }
     };
-    xhttp.open('POST', URL , true); // ready
-    xhttp.send('buffer=' + buffer); // go! LOl
+       // post request
+      xhttp.open("POST", URL, true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send('buffer='+buffer); // send string buffer
 }
