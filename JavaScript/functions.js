@@ -8,6 +8,7 @@
     };
     xhttp.open('GET', URL , true); // ready
     xhttp.setRequestHeader('Content-Type', 'application/json'); // set   
+    // xhttp.setRequestHeader('Accept', 'application/json');  // alt
     xhttp.send(); // go! LOl
 }
 
